@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # File: guessinggame.sh
-
-function rv {
+function fun {
 re='^[0-9]+$'
 while :
 do
@@ -13,29 +12,29 @@ do
         fi
 done
 }
-function tl {                         #Function 1
-echo "Too low, try again"
-rv
+function toolow {                         
+	echo "Too low, try again"
+	fun
 }
-function th {                         #Function 2
-echo "Too high, try again"
-rv
+function toohigh {                         
+	echo "Too high, try again"
+	fun
 }
 num=$( ls | wc -l )
 end=0
 echo "Guess the number of files this directory has, not included the hidden files."
 rv
-while [[ $end -eq 0 ]]              #Loop
+while [[ $end -eq 0 ]]              
 do
-	if [[ $var1 -eq $num ]]     #If statement
+	if [[ $var1 -eq $num ]]     
 	then
 	echo "Congratulations! you guessed it."
 	end=1
 	elif [[ $var1 -gt $num ]]
 	then
-	th
+	toohigh
 	elif [[ $var1 -lt $num ]]
 	then
-	tl
+	toolow
 	fi
 done
